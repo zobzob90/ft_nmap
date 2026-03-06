@@ -6,11 +6,36 @@
 /*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:43:01 by eric              #+#    #+#             */
-/*   Updated: 2026/03/06 16:52:24 by eric             ###   ########.fr       */
+/*   Updated: 2026/03/06 17:26:27 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "nmap.h"
+
+static void parse_port_range(char *av, t_nmap *nmap)
+{
+	char	*dash;
+	int		start;
+	int		end;
+	int		i;
+
+	dash = strchr(av, '-');
+	if (dash)
+	{
+		*dash = '\0';
+		start = atoi(av);
+		end = atoi(dash + 1);
+		i = 0;
+		while (start <= end)
+			nmap->ports[i++] = start++;
+		nmap->port_count = i;
+	}
+	else
+	{
+		nmap->ports[0] = atoi(av);
+		nmap->port_count = 1;
+	}
+}
 
 void parse_args(int ac, char *av[], t_nmap *nmap)
 {
@@ -22,7 +47,6 @@ void parse_args(int ac, char *av[], t_nmap *nmap)
 
 	strncpy(nmap->target_ip, av[1], 15); // -> copie ip dans target ip
 	nmap->target_ip[15] = '\0';
-
-	nmap->ports[0] = atoi(av[2]);
-	nmap->port_count = 1;
+	parse_port_range(av[2], nmap);
 }
+
