@@ -6,7 +6,16 @@
 /*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:42:53 by eric              #+#    #+#             */
-/*   Updated: 2026/03/06 15:42:54 by eric             ###   ########.fr       */
+/*   Updated: 2026/03/06 17:00:11 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "nmap.h"
+
+int main(int ac, char *av[])
+{
+	t_nmap nmap;
+	parse_args(ac, av, &nmap);
+	start_scanning(&nmap);
+	return (0);
+}

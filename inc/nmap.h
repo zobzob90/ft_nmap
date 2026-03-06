@@ -6,7 +6,7 @@
 /*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:43:11 by eric              #+#    #+#             */
-/*   Updated: 2026/03/06 16:12:14 by eric             ###   ########.fr       */
+/*   Updated: 2026/03/06 16:59:14 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,23 @@
 #include <arpa/inet.h>
 #include <pthread.h>
 
+#define OPEN 1
+#define CLOSE 2
+
 typedef struct s_nmap
 {
-	
+	char	target_ip[16];		// stocke ip cible
+	int		ports[65365];		// tableau des ports a scanner
+	int		port_count;			// nombre de ports a scanner
 } t_nmap;
+
+/*PARSING*/
+void	parse_args(int ac, char *av[], t_nmap *nmap);
+
+/*SCANNING*/
+int		create_socket();
+void	start_scanning(t_nmap *nmap);
+
+/*UTILS*/
 
 #endif
