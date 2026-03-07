@@ -6,7 +6,18 @@
 /*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:55:39 by eric              #+#    #+#             */
-/*   Updated: 2026/03/06 15:55:40 by eric             ###   ########.fr       */
+/*   Updated: 2026/03/07 18:24:03 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "nmap.h"
+
+void	*thread_scan(void *arg)
+{
+
+}
+
+void	start_threads(t_nmap *nmap)
+{
+	
+}

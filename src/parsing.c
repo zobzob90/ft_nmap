@@ -6,7 +6,7 @@
 /*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:43:01 by eric              #+#    #+#             */
-/*   Updated: 2026/03/07 17:51:28 by eric             ###   ########.fr       */
+/*   Updated: 2026/03/07 17:54:22 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void parse_port_range(char *av, t_nmap *nmap)
 
 void parse_args(int ac, char *av[], t_nmap *nmap)
 {
-	if (ac != 3)
+	if (ac < 3 || ac == 4)
 	{
 		fprintf(stderr, "Usage: ./ft_nmap <ip> <port>\n");
 		exit (1);
