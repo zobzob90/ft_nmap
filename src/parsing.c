@@ -6,7 +6,7 @@
 /*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:43:01 by eric              #+#    #+#             */
-/*   Updated: 2026/03/06 17:26:27 by eric             ###   ########.fr       */
+/*   Updated: 2026/03/07 17:15:30 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void parse_args(int ac, char *av[], t_nmap *nmap)
 		exit (1);
 	}
 
-	strncpy(nmap->target_ip, av[1], 15); // -> copie ip dans target ip
+	resolve_host(av[1], nmap);
 	nmap->target_ip[15] = '\0';
 	parse_port_range(av[2], nmap);
 }
