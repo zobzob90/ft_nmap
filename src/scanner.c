@@ -6,7 +6,7 @@
 /*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:43:05 by eric              #+#    #+#             */
-/*   Updated: 2026/03/07 17:32:52 by eric             ###   ########.fr       */
+/*   Updated: 2026/03/09 09:56:38 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		scan_port(t_nmap *nmap, int port)
 	FD_ZERO(&wset);
 	FD_SET(sock, &wset);
 	tv.tv_sec = 1;
-	tv.tv_usec = 0;
+	tv.tv_usec = 500;
 
 	ret = select(sock + 1, NULL, &wset, NULL, &tv);
 	close(sock);

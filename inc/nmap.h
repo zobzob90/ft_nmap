@@ -6,7 +6,7 @@
 /*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:43:11 by eric              #+#    #+#             */
-/*   Updated: 2026/03/07 18:24:58 by eric             ###   ########.fr       */
+/*   Updated: 2026/03/09 10:03:26 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 
 #define OPEN 1
 #define CLOSE 2
-#define	MAX_THREADS 250;
+#define	MAX_THREADS 250
 
 // Structure principale
 typedef struct s_nmap
@@ -55,10 +55,16 @@ typedef struct s_thread_data
 void	parse_args(int ac, char *av[], t_nmap *nmap);
 
 /*SCANNING*/
-int		create_socket();
 void	start_scanning(t_nmap *nmap);
+int		scan_port(t_nmap *nmap, int port);
+
+/*THREADS*/
+void	*thread_scan(void *arg);
+void	start_threads(t_nmap *nmap);
 
 /*UTILS*/
+int		create_socket();
 void	resolve_host(char *host, t_nmap *nmap);
+void	print_help();
 
 #endif

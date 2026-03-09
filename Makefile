@@ -7,7 +7,6 @@ INCLUDES = -I inc/
 SRCS	= src/main.c \
 		  src/parsing.c \
 		  src/scanner.c \
-		  src/packet.c \
 		  src/threads.c \
 		  src/utils.c
 

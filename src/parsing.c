@@ -6,7 +6,7 @@
 /*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 15:43:01 by eric              #+#    #+#             */
-/*   Updated: 2026/03/07 17:54:22 by eric             ###   ########.fr       */
+/*   Updated: 2026/03/09 10:05:53 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,11 @@ static void parse_port_range(char *av, t_nmap *nmap)
 
 void parse_args(int ac, char *av[], t_nmap *nmap)
 {
-	if (ac < 3 || ac == 4)
+	if (ac < 3 || strcmp(av[1], "--help") == 0)
 	{
-		fprintf(stderr, "Usage: ./ft_nmap <ip> <port>\n");
+		print_help();
 		exit (1);
 	}
-
 	resolve_host(av[1], nmap);
 	parse_port_range(av[2], nmap);
 	nmap->nb_threads = 0;	// -> defaut
